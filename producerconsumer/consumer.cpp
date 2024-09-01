@@ -12,7 +12,7 @@ void Consumer::consume()
         {
             auto task = TaskQueue::getInstance()->taskList.front();
             TaskQueue::getInstance()->taskList.pop();
-            task.print();
+            cout<<"Done Task\n";
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     }

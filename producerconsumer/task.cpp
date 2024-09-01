@@ -12,5 +12,5 @@ Task::~Task()
 }
 
 void Task::print(){
-    std::cout<<"Produced "<<this->taskName<<" "<<this->param1<<this->param2<<endl;
+    std::cout<<"Produced Task "<<this->taskName<<" "<<this->param1<<this->param2<<endl;
 }

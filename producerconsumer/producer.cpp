@@ -9,9 +9,18 @@ void Producer::produce()
 {
     while(1)
     {
-        Task task("ADD", 5, 6);
-        TaskQueue::getInstance()->taskList.emplace(task);
-        cout<<"Produced\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        if(TaskQueue::getInstance()->taskList.size() < 200)
+        {
+            Task task("ADD", 5, 6);
+            TaskQueue::getInstance()->taskList.emplace(task);
+            task.print();
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        }
+        else
+        {
+            cout<<"Failed to push task\n";
+            std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        }
+        
     }
 }
